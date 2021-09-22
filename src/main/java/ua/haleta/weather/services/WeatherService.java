@@ -15,7 +15,7 @@ import ua.haleta.weather.dto.WeatherMapDTO;
 public class WeatherService {
 
     private final String URI = "http://api.openweathermap.org/data/2.5/forecast?units=metric&";
-    private final String API_ID = "...";
+    private final String API_ID = "2165181b533b1e072f2c691a3be8971d";
 
     private final RestTemplate restTemplate;
 
@@ -30,7 +30,7 @@ public class WeatherService {
 
     public ResponseEntity<?> ddd(String city) {
         WeatherMapDTO weatherMap = this.restTemplate.getForObject(this.url(city), WeatherMapDTO.class);
-        System.out.println(weatherMap.toString());
+        //System.out.println(weatherMap.toString());
         return restTemplate.getForEntity(url(city), String.class);
     }
 

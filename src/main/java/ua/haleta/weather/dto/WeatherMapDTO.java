@@ -12,7 +12,6 @@ import java.util.List;
 
 @Data
 public class WeatherMapDTO {
-
     private String cod;
     private BigDecimal message;
     private Integer cnt;

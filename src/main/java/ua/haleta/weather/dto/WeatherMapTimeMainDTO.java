@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 
 @Data
 public class WeatherMapTimeMainDTO {
-
     private BigDecimal temp;
     private BigDecimal temp_min;
     private BigDecimal temp_max;
