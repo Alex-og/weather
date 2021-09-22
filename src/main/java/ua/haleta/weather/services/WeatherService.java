@@ -15,7 +15,7 @@ import ua.haleta.weather.dto.WeatherMapDTO;
 public class WeatherService {
 
     private final String URI = "http://api.openweathermap.org/data/2.5/forecast?units=metric&";
-    private final String API_ID = "2165181b533b1e072f2c691a3be8971d";
+    private final String API_ID = "...";
 
     private final RestTemplate restTemplate;
 
