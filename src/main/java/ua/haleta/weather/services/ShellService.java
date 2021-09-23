@@ -11,18 +11,20 @@ import org.springframework.stereotype.Service;
 
 @Service
 @ShellComponent
-public class ShellService {
-    private final WeatherService service;
+public class ShellService implements AbstractShellService {
+    private final AbstractWeatherService service;
 
-    public ShellService(WeatherService service) {
+    public ShellService(AbstractWeatherService service) {
         this.service = service;
     }
 
+    @Override
     @ShellMethod("Get the forecast for your city for 40 days.")
-    public void forecast(String city) {
+    public void fortyDays(String city) {
         service.fortyDays(city);
     }
 
+    @Override
     @ShellMethod("Get the forecast for your city for today.")
     public void today(String city) {
         service.today(city);

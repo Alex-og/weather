@@ -9,12 +9,9 @@ import ua.haleta.weather.dto.WeatherMapDTO;
 import ua.haleta.weather.dto.WeatherMapTimeDTO;
 import ua.haleta.weather.model.WeatherWindow;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
 /**
  * @author Oleksandr Haleta
@@ -23,7 +20,7 @@ import java.util.logging.Logger;
 
 @Service
 @Slf4j
-public class WeatherService {
+public class WeatherService implements AbstractWeatherService {
 
     private final String URI = "http://api.openweathermap.org/data/2.5/forecast?units=metric&";
     private final String API_ID = "2165181b533b1e072f2c691a3be8971d";
@@ -34,11 +31,7 @@ public class WeatherService {
         this.restTemplate = restTemplateBuilder.build();
     }
 
-    public ResponseEntity<?> weatherForecastAverage(String city) {
-        var resourceUrl = url(city);
-        return restTemplate.getForEntity(resourceUrl, String.class);
-    }
-
+    @Override
     public void fortyDays(String city) {
         WeatherMapDTO weatherMap = this.restTemplate.getForObject(this.url(city), WeatherMapDTO.class);
         List<WeatherMapTimeDTO> dates = Objects.requireNonNull(weatherMap).getList();
@@ -48,10 +41,12 @@ public class WeatherService {
         resultList.forEach(x -> log.info("\n" + x.toString()));
     }
 
+    @Override
     public void today(String city) {
         WeatherMapDTO weatherMap = this.restTemplate.getForObject(this.url(city), WeatherMapDTO.class);
         log.info("\n" + getWeather(city, weatherMap.getList().get(0)).toString());
     }
+
 
     private WeatherWindow getWeather(String city, WeatherMapTimeDTO dt) {
         WeatherWindow window = new WeatherWindow();
