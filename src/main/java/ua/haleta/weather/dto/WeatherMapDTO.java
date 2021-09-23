@@ -16,4 +16,5 @@ public class WeatherMapDTO {
     private BigDecimal message;
     private Integer cnt;
     private List<WeatherMapTimeDTO> list;
+    private City city;
 }
