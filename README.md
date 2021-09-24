@@ -1,6 +1,6 @@
 # weather
 This is a simple application that you need to interact with through the Spring Shell.
-It connects to the OpenWeather API. For full operation of the application you need to 
+It connects to the OpenWeather API. For correct operation of the application you need to 
 substitute your token from the above-mentioned resource in the API-ID field in the 
 application.propertis file.
 The city name must be entered according to ISO 3166.
