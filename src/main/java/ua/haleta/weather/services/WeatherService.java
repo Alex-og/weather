@@ -1,8 +1,8 @@
 package ua.haleta.weather.services;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import ua.haleta.weather.dto.WeatherMapDTO;
@@ -22,8 +22,10 @@ import java.util.Objects;
 @Slf4j
 public class WeatherService implements AbstractWeatherService {
 
-    private final String URI = "http://api.openweathermap.org/data/2.5/forecast?units=metric&";
-    private final String API_ID = "2165181b533b1e072f2c691a3be8971d";
+    @Value("${spring.application.URI}")
+    private String URI;
+    @Value("${spring.application.API_ID}")
+    private String API_ID;
 
     private final RestTemplate restTemplate;
 
@@ -31,8 +33,16 @@ public class WeatherService implements AbstractWeatherService {
         this.restTemplate = restTemplateBuilder.build();
     }
 
+    public void setURI(String URI) {
+        this.URI = URI;
+    }
+
+    public void setAPI_ID(String API_ID) {
+        this.API_ID = API_ID;
+    }
+
     @Override
-    public void fortyDays(String city) {
+    public void fiveDays(String city) {
         WeatherMapDTO weatherMap = this.restTemplate.getForObject(this.url(city), WeatherMapDTO.class);
         List<WeatherMapTimeDTO> dates = Objects.requireNonNull(weatherMap).getList();
         List<WeatherWindow> resultList = new LinkedList<>();

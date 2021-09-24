@@ -6,6 +6,6 @@ package ua.haleta.weather.services;
  */
 public interface AbstractWeatherService {
 
-    void fortyDays(String city);
+    void fiveDays(String city);
     void today(String city);
 }
