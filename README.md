@@ -6,9 +6,9 @@ application.propertis file.
 The city name must be entered according to ISO 3166.
 
 The following commands are provided:
-    1: Get the forecast for your city for 5 days.
-    2: Get the forecast for your city for today.
+   * 1: Get the forecast for your city for 5 days.
+   * 2: Get the forecast for your city for today.
     
 The input should be in the following format:
-    1 kyiv
-    2 dnipro
+   * 1 kyiv
+   * 2 dnipro
