@@ -1,11 +1,15 @@
 package ua.haleta.weather.services;
 
+import ua.haleta.weather.model.WeatherFrame;
+
+import java.util.List;
+
 /**
  * @author Oleksandr Haleta
  * 2021
  */
 public interface AbstractWeatherService {
 
-    void fiveDays(String city);
-    void today(String city);
+    List<?> fiveDays(String city);
+    WeatherFrame today(String city);
 }
