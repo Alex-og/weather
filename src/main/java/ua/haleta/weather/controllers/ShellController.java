@@ -1,25 +1,26 @@
-package ua.haleta.weather.services;
+package ua.haleta.weather.controllers;
 
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.stereotype.Service;
+import ua.haleta.weather.services.AbstractWeatherService;
 
 /**
  * @author Oleksandr Haleta
  * 2021
  */
 
-@Service
+//@Service
 @ShellComponent
-public class ShellService {
+public class ShellController {
     private final AbstractWeatherService service;
 
-    public ShellService(AbstractWeatherService service) {
+    public ShellController(AbstractWeatherService service) {
         this.service = service;
     }
 
     @ShellMethod(key = "1", value = "Get the forecast for your city for 5 days.")
-    public void fortyDays(String city) {
+    public void fiveDays(String city) {
         service.fiveDays(city);
     }
 

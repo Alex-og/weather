@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  */
 
 @Data
-public class WeatherWindow {
+public class WeatherFrame {
     private String city;
     private LocalDateTime dt;
     private BigDecimal temp;
